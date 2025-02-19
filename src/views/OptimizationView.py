@@ -48,7 +48,7 @@ class OptimizationView(QOpenGLWidget):
 
     def timerEvent(self, event):
         """Анимация: двигаемся по пути на один шаг вперёд"""
-        if self.method.current_step < len(self.method.path) - 1:
+        if self.method.current_step < len(self.method.data) - 1:
             self.method.current_step += 1
             self.update()
         else:

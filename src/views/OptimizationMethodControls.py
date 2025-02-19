@@ -5,7 +5,7 @@ from PyQt6.QtWidgets import (
 
 #Methods tabs
 from src.views.OptimizationMethodTabs.GradientTab import GradientTab
-
+from src.views.OptimizationMethodTabs.GeneticTab import GeneticTab
 class OptimizationMethodControls(QWidget):
     def __init__(self,controller = None):
         super().__init__()
@@ -17,7 +17,9 @@ class OptimizationMethodControls(QWidget):
         layout.addWidget(self.tabs)
 
         self.gradient_tab = GradientTab()
+        self.genetic_tab = GeneticTab()
         self.tabs.addTab(self.gradient_tab, "1")
+        self.tabs.addTab(self.genetic_tab, "3")
 
         # Кнопка запуска
         self.run_button = QPushButton("Запустить")

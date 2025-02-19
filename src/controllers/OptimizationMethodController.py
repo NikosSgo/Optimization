@@ -22,6 +22,11 @@ class OptimizationMethodController:
                 params["step"] = float(params["step"])
                 params["count_iterations"] = int(params["count_iterations"])
                 params["delay"] = int(float(params["delay"]) * 1000)
+            if params["method_name"] == "Генетический алгоритм":
+                params["population_size"] = int(params["population_size"])
+                params["generations"] = int(params["generations"])
+                params["delay"] = int(float(params["delay"]) * 1000)
+
             self.model.run_method(params)
         except ValueError as e:
             self.show_error_message(f"Ошибка в данных: {e}")

@@ -33,5 +33,5 @@ class GradientDescent:
         path = self.run(func, start_x, start_y, step, count_iterations)
         gradient_render = GradientDescentRender()
         gradient_render.z_scale = z_scale
-        gradient_render.path = path
+        gradient_render.data = path
         return gradient_render

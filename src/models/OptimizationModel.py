@@ -5,7 +5,7 @@ from src.models.functions_models.HimmelblauFunction import HimmelblauFunction
 from src.models.functions_models.RosenbrockFunction import RosenbrockFunction
 #import methods models
 from src.models.methods_models.GradientDescent import GradientDescent
-
+from src.models.methods_models.GeneticAlgoritm import GeneticAlgorithm
 class OptimizationModel:
     def __init__(self):
         self.current_function = ""
@@ -18,6 +18,7 @@ class OptimizationModel:
 
         self.methods = {
             "Метод градиентного спуска": GradientDescent(),
+            "Генетический алгоритм": GeneticAlgorithm()
         }
 
         self._x_axis = (-5,5)
@@ -81,7 +82,7 @@ class OptimizationModel:
 
         if self.current_function:
             func = self.functions[self.current_function]
-            method_render = method.get_render(func,self.z_scale,**params)
+            method_render = method.get_render(func,self.z_scale,**self.to_dict(),**params)
             method_run_data = {
                 "optimization_view": {
                     "run_method": {

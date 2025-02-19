@@ -3,19 +3,17 @@ from PyQt6.QtWidgets import (
     QCheckBox, QVBoxLayout, QHBoxLayout, QComboBox, QGroupBox
 )
 
-class GradientTab(QWidget):
+class GeneticTab(QWidget):
     def __init__(self,controller = None):
         super().__init__()
         layout = QVBoxLayout()
         # --- Блок "Настройки метода" ---
-        settings_group = QGroupBox("Настройки градиентного спуска")
+        settings_group = QGroupBox("Настройки генетического алгоритма")
         settings_layout = QVBoxLayout()
 
-        self.x_input = self.create_labeled_input(settings_layout,"X", "-1")
-        self.y_input = self.create_labeled_input(settings_layout,"Y", "-1")
+        self.population_size = self.create_labeled_input(settings_layout,"Размер популяции", "20")
+        self.generations = self.create_labeled_input(settings_layout,"Количество поколений", "10")
 
-        self.step_input = self.create_labeled_input(settings_layout,"Начальный шаг", "0.5")
-        self.iterations_input = self.create_labeled_input(settings_layout,"Число итераций", "100")
         self.delay_input = self.create_labeled_input(settings_layout, "Задержка", "0.5")
 
         settings_group.setLayout(settings_layout)
@@ -36,11 +34,9 @@ class GradientTab(QWidget):
 
     def get_params(self):
         return {
-            "method_name": "Метод градиентного спуска",
-            "start_x": self.x_input.text(),
-            "start_y": self.y_input.text(),
-            "step": self.step_input.text(),
-            "count_iterations": self.iterations_input.text(),
+            "method_name": "Генетический алгоритм",
+            "population_size": self.population_size.text(),
+            "generations": self.generations.text(),
             "delay": self.delay_input.text(),
         }
 
