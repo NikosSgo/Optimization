@@ -12,7 +12,8 @@ class OptimizationFunctionControls(QWidget):
         function_group = QGroupBox("Функция и отображение её графика")
         function_layout = QVBoxLayout()
 
-        functions_list = ["", "Функция Химмельблау","Функция Матьяса"]
+        functions_list = ["", "Функция Химмельблау","Функция Матьяса","Функция Розенброка"]
+
         self.func_combo = self._create_labeled_combo(function_layout,"Функция", functions_list)
         self.x_interval_input = self._create_labeled_input(function_layout,"X интервал", "(-5;5)")
         self.y_interval_input = self._create_labeled_input(function_layout,"Y интервал", "(-5;5)")

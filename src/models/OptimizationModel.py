@@ -2,6 +2,7 @@ from src.views.functions_render.OptimizationFunctonRender import OptimizationFun
 #import functions models
 from src.models.functions_models.MatyasFunction import MatyasFunction
 from src.models.functions_models.HimmelblauFunction import HimmelblauFunction
+from src.models.functions_models.RosenbrockFunction import RosenbrockFunction
 #import methods models
 from src.models.methods_models.GradientDescent import GradientDescent
 
@@ -11,6 +12,7 @@ class OptimizationModel:
         self.functions = {
             "Функция Химмельблау": HimmelblauFunction(),
             "Функция Матьяса": MatyasFunction(),
+            "Функция Розенброка": RosenbrockFunction()
 
         }
 
