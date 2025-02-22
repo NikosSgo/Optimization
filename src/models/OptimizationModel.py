@@ -3,22 +3,29 @@ from src.views.functions_render.OptimizationFunctonRender import OptimizationFun
 from src.models.functions_models.MatyasFunction import MatyasFunction
 from src.models.functions_models.HimmelblauFunction import HimmelblauFunction
 from src.models.functions_models.RosenbrockFunction import RosenbrockFunction
+from src.models.functions_models.SphereFunction import SphereFunction
 #import methods models
 from src.models.methods_models.GradientDescent import GradientDescent
 from src.models.methods_models.GeneticAlgoritm import GeneticAlgorithm
+from src.models.methods_models.BeesAlgorithm import BeeAlgorithm
+from src.models.methods_models.BacterialAlgorithm import BacterialAlgorithm
+
 class OptimizationModel:
     def __init__(self):
         self.current_function = ""
         self.functions = {
             "Функция Химмельблау": HimmelblauFunction(),
             "Функция Матьяса": MatyasFunction(),
-            "Функция Розенброка": RosenbrockFunction()
+            "Функция Розенброка": RosenbrockFunction(),
+            "Функция сферы": SphereFunction()
 
         }
 
         self.methods = {
             "Метод градиентного спуска": GradientDescent(),
-            "Генетический алгоритм": GeneticAlgorithm()
+            "Генетический алгоритм": GeneticAlgorithm(),
+            "Пчелиный алгоритм": BeeAlgorithm(),
+            "Бактериальный алгоритм": BacterialAlgorithm(),
         }
 
         self._x_axis = (-5,5)

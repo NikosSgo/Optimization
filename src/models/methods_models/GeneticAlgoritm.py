@@ -23,7 +23,10 @@ class GeneticAlgorithm:
             sorted_generation_data = generation_data[generation_data[:, 2].argsort()[::-1]]  # Сортировка по убыванию z
             history.append(sorted_generation_data)
 
-            self.logs.append(f"Поколение {generation + 1}: минимум приспособленности {np.min(fitness_values)}")
+            # Логируем лучшую бактерию
+            best_fitness = sorted_generation_data[-1, 2]
+            best_coords = sorted_generation_data[-1, :2]
+            self.logs.append(f"Поколение {generation + 1}: минимум приспособленности {best_fitness}, координаты {best_coords}")
 
             if np.min(fitness_values) < self.tolerance:
                 self.logs.append(f"Достигнута точка останова: минимум ниже порога {self.tolerance}")

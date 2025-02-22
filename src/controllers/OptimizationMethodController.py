@@ -26,7 +26,20 @@ class OptimizationMethodController:
                 params["population_size"] = int(params["population_size"])
                 params["generations"] = int(params["generations"])
                 params["delay"] = int(float(params["delay"]) * 1000)
-
+            if params["method_name"] == "Пчелиный алгоритм":
+                params["scout_bees"] = int(params["scout_bees"])
+                params["selected_bees"] = int(params["selected_bees"])
+                params["elite_bees"] = int(params["elite_bees"])
+                params["generations"] = int(params["generations"])
+                params["neighborhood_size"] = float(params["neighborhood_size"])
+                params["delay"] = int(float(params["delay"]) * 1000)
+            if params["method_name"] == "Бактериальный алгоритм":
+                params["population_size"] = int(params["population_size"])
+                params["step_size"] = float(params["step_size"])
+                params["swim_length"] = int(params["swim_length"])
+                params["probability"] = float(params["probability"])
+                params["generations"] = int(params["generations"])
+                params["delay"] = int(float(params["delay"]) * 1000)
             self.model.run_method(params)
         except ValueError as e:
             self.show_error_message(f"Ошибка в данных: {e}")
